@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 * {
-    /* font-family: "Lora", serif; */
-    font-family: "Merriweather";
+    font-family: "Lora", serif;
+    /* font-family: "Merriweather"; */
     color: rgba(35, 38, 47, 1);
 }
 
@@ -20,15 +20,14 @@ h4 {
     margin: 4px;
     font-size: 4rem;
     color: rgb(75, 81, 93);
-    
+
 }
 
 p {
     color: rgb(119, 126, 144);
     /* font-family: "Archivo Narrow", sans-serif; */
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: lighter;
-    font-style: italic;
     margin: 4px;
 }
 
@@ -52,6 +51,15 @@ button {
     background-color: rgb(240, 248, 255);
 }
 
+.logo {
+    height: 39px;
+}
+
+.logo-text {
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 1rem !important;
+}
+
 /* Dashboard */
 .dashboard {
     width: 70vw;
@@ -65,9 +73,43 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 70px 0 50px 0;
+    padding: 5rem 0 3rem 0;
 }
 
 .dashboard .dashboard-info-container {
-    font-size: 1.4em;
+    font-size: 1.4rem;
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: rgb(151, 151, 151) 2px solid;
+}
+
+header .header-container {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .header-container .header-item-container {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+}
+
+header .header-container .header-item-container p {
+    margin: 0 1rem;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+header .avatar {
+    height: 3rem;
+    border-radius: 50%;
+    margin-left: 1rem;
 }

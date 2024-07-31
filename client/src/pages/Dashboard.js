@@ -5,9 +5,9 @@ const Dashboard = () => {
                 <div className="dashboard-info-container">
                     <div>
                         <h1>Adventure anywhere</h1>
-                        <p>Keep calm && travel on</p>
+                        <p>keep calm & travel on</p>
                     </div>
-                    <button>add Your adventure</button>
+                    <button>Add adventure</button>
                 </div>
 
                 <div className="posts-container"></div>
