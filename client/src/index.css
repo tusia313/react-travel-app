@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 * {
-    font-family: "Merriweather Sans", sans-serif;
+    /* font-family: "Lora", serif; */
+    font-family: "Merriweather";
     color: rgba(35, 38, 47, 1);
 }
 
@@ -10,24 +11,63 @@ body {
     padding: 0;
 }
 
-h1, h2, h3, h4, p {
-    font-weight: lighter;
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    letter-spacing: -2px;
     margin: 4px;
+    font-size: 4rem;
+    color: rgb(75, 81, 93);
+    
 }
 
 p {
     color: rgb(119, 126, 144);
+    /* font-family: "Archivo Narrow", sans-serif; */
     font-size: 1em;
+    font-weight: lighter;
+    font-style: italic;
+    margin: 4px;
 }
 
 button {
     /* background-color: rgb(68, 65, 248); */
-    background-color: rgb(150, 255, 47);
+    background-color: skyblue;
     color: rgb(255, 255, 255);
     border: none;
-    padding: 12px 22px;
-    border-radius: 90px;
-    font-size: 0.7em;
-    font-weight: bolder;
+    padding: 18px 18px;
+    border-radius: 50px;
+    font-size: 0.6em;
+    /* font-weight: bolder; */
     letter-spacing: 1px;
+}
+
+.app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(240, 248, 255);
+}
+
+/* Dashboard */
+.dashboard {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard .dashboard-info-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 0 50px 0;
+}
+
+.dashboard .dashboard-info-container {
+    font-size: 1.4em;
 }
