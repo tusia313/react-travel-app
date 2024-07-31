@@ -31,24 +31,59 @@ p {
     margin: 4px;
 }
 
-button {
-    /* background-color: rgb(68, 65, 248); */
+/* button {
     background-color: skyblue;
     color: rgb(255, 255, 255);
     border: none;
     padding: 18px 18px;
     border-radius: 50px;
     font-size: 0.6em;
-    /* font-weight: bolder; */
     letter-spacing: 1px;
-}
-
+} */
+.cta {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .cta span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
+  }
+  
+  .hover-underline-animation {
+    position: relative;
+    color: black;
+    padding-bottom: 20px;
+  }
+  
+  .hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: 93%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .cta:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
 .app {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(240, 248, 255);
+    /* background-color: rgb(240, 248, 255); */
 }
 
 .logo {
@@ -112,4 +147,19 @@ header .avatar {
     height: 3rem;
     border-radius: 50%;
     margin-left: 1rem;
+}
+
+/* Foooter */
+
+footer {
+    width: 100%;
+    /* background-color: rgb(20,20,20); */
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+}
+
+footer .footer-container {
+    width: 74%;
+    padding: 2.5rem;
 }
