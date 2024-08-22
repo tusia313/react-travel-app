@@ -1,4 +1,12 @@
 const Dashboard = () => {
+
+    const posts = [
+        {
+            "id": 0,
+            "title": "Lofoten Islands"
+        }
+    ]
+
     return (
         <div className="app">
             <div className="dashboard">
@@ -8,7 +16,7 @@ const Dashboard = () => {
                         <p>keep calm & travel on</p>
                     </div>
                     <button class="cta">
-                        <span class="hover-underline-animation"> + Add adventure</span>
+                        <span class="hover-underline-animation"> + add <br/> adventure</span>
                         <path
                             id="Path_10"
                             data-name="Path 10"
