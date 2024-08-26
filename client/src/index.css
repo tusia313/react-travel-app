@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
 
 * {
-    font-family: "Lexend Deca";
+    font-family: "Lexend Deca", Arial, sans-serif;
     color: rgba(35, 38, 47, 1);
 }
 
@@ -26,109 +26,31 @@ h4 {
 p {
     color: rgb(119, 126, 144);
     /* font-family: "Archivo Narrow", sans-serif; */
-    font-size: 1rem;
-    font-weight: lighter;
+    font-size: 1.6rem;
+    font-weight: light;
     margin: 4px;
 }
 
 /* Button */
 
-/* button {
-    background-color: skyblue;
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 18px 18px;
-    border-radius: 50px;
-    font-size: 0.6em;
-    letter-spacing: 1px;
-} */
-/* .cta {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.cta span {
-    padding-bottom: 7px;
-    letter-spacing: 4px;
-    font-size: 14px;
-    padding-right: 15px;
-    text-transform: uppercase;
-}
-
-.hover-underline-animation {
-    position: relative;
-    color: black;
-    padding-bottom: 20px;
-}
-
-.hover-underline-animation:after {
-    content: "";
-    position: absolute;
-    width: 93%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #000000;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-.cta:hover .hover-underline-animation:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-} */
 button {
-    --glow-color: rgb(217, 176, 255);
-    --glow-spread-color: rgba(191, 123, 255, 0.781);
-    --enhanced-glow-color: rgb(231, 206, 255);
-    --btn-color: rgb(100, 61, 136);
-    border: .25em solid var(--glow-color);
-    padding: 1em 3em;
-    color: var(--glow-color);
-    font-size: 15px;
-    font-weight: bold;
-    background-color: var(--btn-color);
-    border-radius: 1em;
-    outline: none;
-    box-shadow: 0 0 1em .25em var(--glow-color),
-           0 0 4em 1em var(--glow-spread-color),
-           inset 0 0 .75em .25em var(--glow-color);
-    text-shadow: 0 0 .5em var(--glow-color);
-    position: relative;
-    transition: all 0.3s;
-   }
-   
-   button::after {
-    pointer-events: none;
-    content: "";
-    position: absolute;
-    top: 120%;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--glow-spread-color);
-    filter: blur(2em);
-    opacity: .7;
-    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
-   }
-   
-   button:hover {
-    color: var(--btn-color);
-    background-color: var(--glow-color);
-    box-shadow: 0 0 1em .25em var(--glow-color),
-           0 0 4em 2em var(--glow-spread-color),
-           inset 0 0 .75em .25em var(--glow-color);
-   }
-   
-   button:active {
-    box-shadow: 0 0 0.6em .25em var(--glow-color),
-           0 0 2.5em 2em var(--glow-spread-color),
-           inset 0 0 .5em .25em var(--glow-color);
-   }
+    color: rgb(119, 126, 144);
+    /* text-transform: uppercase; */
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(119, 126, 144);
+    background: white;
+    box-shadow: 3px 3px rgb(119, 126, 144);
+    cursor: pointer;
+    margin: 20px 0;
+}
 
-  
+button:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
 .app {
     width: 100%;
     display: flex;
@@ -148,7 +70,7 @@ button {
 
 /* Dashboard */
 .dashboard {
-    width: 70vw;
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,14 +78,17 @@ button {
 
 .dashboard .dashboard-info-container {
     width: 100%;
+    /* display: flex;
+    justify-content: space-between; */
+    padding: 5rem 0 3rem 0;
+    font-size: 1.4rem;
+}
+
+.dashboard .dashboard-button-container {
+    width: 60%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5rem 0 3rem 0;
-}
-
-.dashboard .dashboard-info-container {
-    font-size: 1.4rem;
 }
 
 /* Header */
