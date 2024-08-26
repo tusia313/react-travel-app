@@ -35,15 +35,13 @@ p {
 
 button {
     color: rgb(119, 126, 144);
-    /* text-transform: uppercase; */
-    font-size: 1.6rem;
-    padding: 10px 20px;
+    padding: 1rem 1.5rem;
     border-radius: 10px;
     border: 1px solid rgb(119, 126, 144);
     background: white;
     box-shadow: 3px 3px rgb(119, 126, 144);
     cursor: pointer;
-    margin: 20px 0;
+    margin: 0.8rem 0;
 }
 
 button:active {
@@ -153,7 +151,6 @@ header .avatar {
 }
 
 /* Foooter */
-
 footer {
     width: 100%;
     /* background-color: rgb(20,20,20); */
