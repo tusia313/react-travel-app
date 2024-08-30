@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Card from '../components/Card'
 
 const Dashboard = () => {
@@ -37,7 +38,9 @@ const Dashboard = () => {
                 <div className="posts-container">
                     {/*  w .map() musimy dać w key i w nawais _index - ale tutaj jest id, więc wychodzi na to samo */}
                     {posts?.map((post) => (
-                        <Card key={post.id} post={post}></Card>
+                        <Link to={`/post/${post.id}`} key={post.id} id="link">
+                        <Card post={post}></Card>
+                        </Link>
                     ))}
                 </div>
             </div>

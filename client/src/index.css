@@ -14,7 +14,7 @@ body {
 h1 {
     font-weight: 700;
     letter-spacing: -2px;
-    margin: 4px;
+    margin: 0.4rem;
     font-size: 4rem;
     /* color: rgb(75, 81, 93); */
 }
@@ -23,13 +23,17 @@ h2,
 h3,
 h4,
 p {
-    margin: 4px;
+    margin: 0.4rem;
 }
 
 p {
     color: rgb(119, 126, 144);
     font-size: 0.8rem;
     /* font-weight: light; */
+}
+
+#link {
+    text-decoration: none;
 }
 
 /* Button */
@@ -149,6 +153,20 @@ header .avatar {
 
 .card-container .info-container {
     padding: 0.8rem 1.2rem;
+}
+
+/* Tag */
+
+.tag-container {
+    display: flex
+}
+
+.tag {
+    background-color: rgb(230,232,236);
+    padding: 0.7rem 1rem;
+    margin-right: 0.3rem;
+    border-radius: 1.4rem;
+    font-size: 0.8rem;
 }
 
 /* Foooter */
