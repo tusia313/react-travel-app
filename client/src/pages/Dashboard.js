@@ -1,27 +1,20 @@
 import { Link } from 'react-router-dom'
 import Card from '../components/Card'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const Dashboard = () => {
-    const posts = [
-        {
-            id: 0,
-            title: "Lofoten Islands",
-            address: {
-                line: "House 45",
-                town: "Flakstad",
-                region: "Lofoten",
-                country: "Norway",
-                coords: [
-                    13.615140,
-                    68.148995
-                ]
-            },
-            photo:"https://www.intrepidtravel.com/adventures/wp-content/uploads/2018/10/Intrepid-Travel-Norway_Reine_Lofoten_Islands_ss_382716112.jpg",
-            website: "https://www.fjordtravel.no",
-            description: "Island full of fiords and magic!",
-            tags: ["nature", "hiking", "mountains"]
-        }
-    ]
+
+    const fetchData = async () => {
+        const response = await axios.get('http://localhost:8000/posts')
+        // teraz zmieniam objekt na łańcuch, żeby móc z tym pracowac
+        const dataObject = response.data.data
+        const arrayOfData = Object.keys(dataObject).map(key => [key, dataObject[key]])
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
 
     return (
         <div className="app">
@@ -37,11 +30,11 @@ const Dashboard = () => {
 
                 <div className="posts-container">
                     {/*  w .map() musimy dać w key i w nawais _index - ale tutaj jest id, więc wychodzi na to samo */}
-                    {posts?.map((post) => (
+                    {/* {posts?.map((post) => (
                         <Link to={`/post/${post.id}`} key={post.id} id="link">
-                        <Card post={post}></Card>
+                            <Card post={post}></Card>
                         </Link>
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div >
