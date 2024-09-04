@@ -46,7 +46,7 @@ button {
     background: white;
     box-shadow: 3px 3px rgba(35, 38, 47, 1);
     cursor: pointer;
-    margin: 0.8rem 0;
+    margin: 0.8rem 1rem;
 }
 
 button:active {
@@ -86,10 +86,17 @@ button:active {
     font-size: 1.4rem;
 }
 
-.dashboard .dashboard-info-container .dashboard-button-container {
-    width: 50%;
+.dashboard .posts-container {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.dashboard .dashboard-info-container .dashboard-button-container {
+    /* width: 50%; */
+    display: flex;
+    justify-content: left;
     align-items: center;
 }
 
@@ -172,9 +179,9 @@ header .avatar {
 /* Foooter */
 footer {
     width: 100%;
+    background-color: plum;
     /* background-color: rgb(20,20,20); */
-    /* background-color: skyblue; */
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     display: flex;
     justify-content: center;
 }
