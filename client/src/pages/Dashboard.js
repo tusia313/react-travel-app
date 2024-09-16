@@ -20,28 +20,24 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div className="app">
-            <div className="dashboard">
-                <div className="dashboard-info-container">
-
+        <div className="dashboard">
+            <div className="dashboard-info-container">
+                <div>
                     <h1>Adventure anywhere</h1>
-                    <div className="dashboard-button-container">
-                        <h4>keep calm & travel on</h4>
-                        <button>+ add adventure</button>
-                    </div>
-
+                    <p>keep calm & travel on</p>
                 </div>
-
-                <div className="posts-container">
-                    {/*  w .map() musimy dać w key i w nawais _index - ale tutaj jest id, więc wychodzi na to samo */}
-                    {posts?.map((post) => (
-                        <Link to={`/post/${post[0]}`} key={post[0]} id="link">
-                            <Card post={post[1]}></Card>
-                        </Link>
-                    ))}
-                </div>
+                <button>+ add adventure</button>
             </div>
-        </div >
+            
+            <div className="posts-container">
+                {/*  w .map() musimy dać w key i w nawais _index - ale tutaj jest id, więc wychodzi na to samo */}
+                {posts?.map((post) => (
+                    <Link to={`/post/${post[0]}`} key={post[0]} id="link">
+                        <Card post={post[1]}></Card>
+                    </Link>
+                ))}
+            </div>
+        </div>
     )
 }
 export default Dashboard
