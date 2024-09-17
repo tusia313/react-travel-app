@@ -20,22 +20,24 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div className="dashboard">
-            <div className="dashboard-info-container">
-                <div>
-                    <h1>Adventure anywhere</h1>
-                    <p>keep calm & travel on</p>
+        <div className="app">
+            <div className="dashboard">
+                <div className="dashboard-info-container">
+                    <div>
+                        <h1>Adventure anywhere</h1>
+                        <p>keep calm & travel on</p>
+                    </div>
+                    <button>+ add adventure</button>
                 </div>
-                <button>+ add adventure</button>
-            </div>
-            
-            <div className="posts-container">
-                {/*  w .map() musimy dać w key i w nawais _index - ale tutaj jest id, więc wychodzi na to samo */}
-                {posts?.map((post) => (
-                    <Link to={`/post/${post[0]}`} key={post[0]} id="link">
-                        <Card post={post[1]}></Card>
-                    </Link>
-                ))}
+
+                <div className="posts-container">
+                    {/*  w .map() musimy dać w key i w nawais _index - ale tutaj jest id, więc wychodzi na to samo */}
+                    {posts?.map((post) => (
+                        <Link to={`/post/${post[0]}`} key={post[0]} id="link">
+                            <Card post={post[1]}></Card>
+                        </Link>
+                    ))}
+                </div>
             </div>
         </div>
     )

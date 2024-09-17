@@ -1,9 +1,18 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
 
+:root {
+    --clr-font-color-general: rgb(255, 255, 255);
+    --clr-font-color-backpack: rgb(35,38,47);
+    --clr-h1: rgb(75, 81, 93);
+    --clr-p: rgb(119, 126, 144);
+    --clr-background: #3cb371;
+    --clr-logo-text: rgb(0,0,0);
+}
+
 * {
     font-family: "Lexend Deca", Arial, sans-serif;
-    color: rgba(35, 38, 47, 1);
+    color: var(--clr-font-color-general);
 }
 
 body {
@@ -16,7 +25,6 @@ h1 {
     letter-spacing: -2px;
     margin: 0.4rem;
     font-size: 4rem;
-    /* color: rgb(75, 81, 93); */
 }
 
 h2,
@@ -27,9 +35,7 @@ p {
 }
 
 p {
-    color: rgb(119, 126, 144);
     font-size: 0.8rem;
-    /* font-weight: light; */
 }
 
 #link {
@@ -39,11 +45,11 @@ p {
 /* Button */
 
 button {
-    /* color: rgb(119, 126, 144); */
+    color: var(--clr-background);
     padding: 1rem 1.5rem;
     border-radius: 10px;
     border: 1px solid rgba(35, 38, 47, 1);
-    background: white;
+    background: var(--clr-font-color-general);
     box-shadow: 3px 3px rgba(35, 38, 47, 1);
     cursor: pointer;
     margin: 0.8rem 1rem;
@@ -59,6 +65,7 @@ button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--clr-background);
 }
 
 .logo {
@@ -66,13 +73,13 @@ button:active {
 }
 
 .logo-text {
-    color: rgba(0, 0, 0, 0.85);
+    color: var(--clr-logo-text);
     font-size: 1rem !important;
 }
 
 /* Dashboard */
 .dashboard {
-    width: 70%;
+    width: 76%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,10 +87,15 @@ button:active {
 
 .dashboard .dashboard-info-container {
     width: 100%;
-    /* display: flex;
-    justify-content: space-between; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 5rem 0 3rem 0;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
+}
+
+.dashboard .dashboard-info-container p {
+    font-size: 1rem;
 }
 
 .dashboard .posts-container {
@@ -169,7 +181,7 @@ header .avatar {
 }
 
 .tag {
-    background-color: rgb(230,232,236);
+    background-color: rgb(230, 232, 236);
     padding: 0.7rem 1rem;
     margin-right: 0.3rem;
     border-radius: 1.4rem;
@@ -179,9 +191,6 @@ header .avatar {
 /* Foooter */
 footer {
     width: 100%;
-    background-color: plum;
-    /* background-color: rgb(20,20,20); */
-    /* background-color: lightgreen; */
     display: flex;
     justify-content: center;
 }
