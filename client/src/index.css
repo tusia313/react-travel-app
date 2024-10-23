@@ -3,11 +3,11 @@
 
 :root {
     --clr-font-color-general: rgb(255, 255, 255);
-    --clr-font-color-backpack: rgb(35,38,47);
+    --clr-font-color-backpack: rgb(35, 38, 47);
     --clr-h1: rgb(75, 81, 93);
     --clr-p: rgb(119, 126, 144);
     --clr-background: #3cb371;
-    --clr-logo-text: rgb(0,0,0);
+    --clr-logo-text: rgb(0, 0, 0);
 }
 
 * {
@@ -188,14 +188,22 @@ header .avatar {
     font-size: 0.8rem;
 }
 
-/* Foooter */
+/* Footer */
 footer {
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 5rem 0;
+    background-color: var(--clr-background);
+    background-image: url(images/wave-haikei.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 footer .footer-container {
-    width: 74%;
-    padding: 2.5rem;
+    width: 80%;
+    z-index: 1; 
+    text-align: left;
 }
+
+
