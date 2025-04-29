@@ -26,3 +26,30 @@ button {
     padding: 1rem 2rem;
     border-radius: 5rem;
 }
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+/* Dashboard */
+.dashboard {
+    width: 76vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard .dashboard-info-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0 3rem 0;
+}
+
+.dashboard .dashboard-info-container p {
+    font-size: 1rem;
+}
