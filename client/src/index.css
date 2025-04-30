@@ -96,7 +96,7 @@ header .header-container {
 
 /* Card */
 .card-container {
-    width: 19rem;
+    width: 21rem;
     height: 30rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
@@ -104,8 +104,8 @@ header .header-container {
     background-color: rgb(247, 247, 247);
 }
 .card-container .img-container {
-    width: 19rem;
-    height: 25rem;
+    width: 21rem;
+    height: 24rem;
     border-radius: 0.7rem 0.7rem 0 0;
     overflow: hidden;
 }
