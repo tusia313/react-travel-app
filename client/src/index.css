@@ -10,7 +10,12 @@ body {
     padding: 0px;
 }
 
-h1, h2, h3, h4, h5, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
     margin: 4px;
 }
 
@@ -22,10 +27,11 @@ p {
 button {
     background-color: rgb(68, 65, 248);
     border: none;
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     padding: 1rem 2rem;
     border-radius: 5rem;
 }
+
 .app {
     display: flex;
     flex-direction: column;
@@ -33,6 +39,7 @@ button {
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
+
 .logo {
     height: 3rem;
 }
@@ -64,7 +71,8 @@ header {
     justify-content: center;
     border-bottom: rgb(151, 151, 151) solid 1px;
 }
-header .header-container{
+
+header .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,6 +84,7 @@ header .header-container{
     display: flex;
     align-items: center;
 }
+
 .header-container .header-item-container p {
     margin: 0 2rem;
 }
@@ -83,4 +92,25 @@ header .header-container{
 .header-container .header-item-container .avatar {
     height: 3rem;
     border-radius: 50%;
+}
+
+/* Footer */
+
+footer {
+    /* background-color: rgb(20,20,220); */
+    background-color: rgb(20, 20, 22);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+footer .footer-container {
+    width: 74%;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+footer .footer-container h4 {
+    color: rgb(255, 255, 255);
 }

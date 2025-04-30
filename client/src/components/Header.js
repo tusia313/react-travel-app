@@ -7,6 +7,7 @@ const Header = () => {
             <div className = "header-container">
                 <div className = "header-item-container">
                     <Link to = {'/'}><img className = "logo" src = {logo} alt = "Holy adventure"></img></Link>
+                    <h4>holy_adventure</h4>
                 </div>
                 <div className = "header-item-container">
                     <p>⌽ Log out</p>
