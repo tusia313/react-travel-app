@@ -94,6 +94,25 @@ header .header-container {
     border-radius: 50%;
 }
 
+/* Card */
+.card-container {
+    width: 19rem;
+    height: 30rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.8rem 2.8rem 0.8rem rgba(0,0,0,0.08);
+    background-color: rgb(247, 247, 247);
+}
+.card-container .img-container {
+    width: 19rem;
+    height: 25rem;
+    border-radius: 0.7rem 0.7rem 0 0;
+    overflow: hidden;
+}
+.card-container .img-container img {
+    width: 200%;
+}
+
 /* Footer */
 
 footer {
