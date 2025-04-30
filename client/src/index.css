@@ -33,6 +33,9 @@ button {
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
+.logo {
+    height: 3rem;
+}
 
 /* Dashboard */
 .dashboard {
@@ -52,4 +55,32 @@ button {
 
 .dashboard .dashboard-info-container p {
     font-size: 1rem;
+}
+
+/* Header */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: rgb(151, 151, 151) solid 1px;
+}
+header .header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.header-container .header-item-container {
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+}
+.header-container .header-item-container p {
+    margin: 0 2rem;
+}
+
+.header-container .header-item-container .avatar {
+    height: 3rem;
+    border-radius: 50%;
 }
