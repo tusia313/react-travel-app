@@ -44,6 +44,11 @@ button {
     height: 3rem;
 }
 
+#link {
+    text-decoration: none;
+    color: rgb(68, 65, 248);
+}
+
 /* Dashboard */
 .dashboard {
     width: 76vw;
@@ -97,7 +102,6 @@ header .header-container {
 /* Card */
 .card-container {
     width: 21rem;
-    height: 30rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0.8rem 2.8rem 0.8rem rgba(0,0,0,0.08);
@@ -115,6 +119,25 @@ header .header-container {
 
 .card-container .info-container {
     padding: 0.8rem 1.2rem;
+}
+
+/* Tag */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 1rem; */
+}
+.tag {
+    background-color: rgb(230, 232, 236);
+    padding: 0.6rem 0.9rem; 
+    margin-right: 0.25rem;       
+    font-size: 0.8rem;        
+    border-radius: 1rem;
+}
+.tag:hover {
+    background-color: rgb(68, 65, 248);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 /* Footer */

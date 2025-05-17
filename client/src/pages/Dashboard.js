@@ -1,4 +1,5 @@
 import Card from '../components/Card'
+import { Link } from 'react-router-dom'
 const posts = [
     {
         id: 0,
@@ -13,7 +14,7 @@ const posts = [
         photo: "https://chocholowska.com/wp-content/uploads/2015/07/12.jpg",
         website: "https://chocholowska.com/",
         description: "The most beautiful valley in Poland's Tatra mountains",
-        tag: ["nature", "krokusy", "mountains"]
+        tags: ["nature", "krokusy", "mountains"]
     }
 ]
 const Dashboard = () => {
@@ -29,7 +30,9 @@ const Dashboard = () => {
                 </div>
                 <div className="posts-container">
                     {posts?.map((post) => (
-                        <Card key={post.id} post={post}/>
+                        <Link to={`/posts/${post.id}`} id="link" key={post.id}>
+                        <Card post={post}/>
+                        </Link>
                     ))}
                 </div>
             </div>
