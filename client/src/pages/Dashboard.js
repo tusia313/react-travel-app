@@ -1,23 +1,17 @@
 import Card from '../components/Card'
 import { Link } from 'react-router-dom'
-const posts = [
-    {
-        id: 0,
-        title: "Chochołowska Valley",
-        address: {
-            line: "Skrytka pocztowa 195",
-            town: "Zakopane",
-            region: "Tatra Mountains",
-            country: "Poland",
-            coords: [49.236397, 19.793761]
-        },
-        photo: "https://chocholowska.com/wp-content/uploads/2015/07/12.jpg",
-        website: "https://chocholowska.com/",
-        description: "The most beautiful valley in Poland's Tatra mountains",
-        tags: ["nature", "krokusy", "mountains"]
-    }
-]
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+
 const Dashboard = () => {
+    const fetchPosts = async () => {
+        const response = await axios.get('http://localhost:8000/posts')
+        const dataObject = response.data.data
+        const arrayOfData = Object.keys(dataObject).map((key) => [key, dataObject[key]])
+    }
+    useEffect(() => {
+        fetchPosts()
+      }, [])
     return (
         <div className="app">
             <div className="dashboard">
@@ -29,11 +23,11 @@ const Dashboard = () => {
                     <button>Add Your adventure</button>
                 </div>
                 <div className="posts-container">
-                    {posts?.map((post) => (
+                    {/* {posts?.map((post) => (
                         <Link to={`/posts/${post.id}`} id="link" key={post.id}>
                         <Card post={post}/>
                         </Link>
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>
