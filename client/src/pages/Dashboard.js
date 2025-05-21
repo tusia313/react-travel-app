@@ -4,14 +4,17 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 const Dashboard = () => {
+    const [posts, setPosts] = useState(null)
     const fetchPosts = async () => {
         const response = await axios.get('http://localhost:8000/posts')
         const dataObject = response.data.data
         const arrayOfData = Object.keys(dataObject).map((key) => [key, dataObject[key]])
+        setPosts(arrayOfData)
     }
     useEffect(() => {
         fetchPosts()
       }, [])
+      console.log(posts)
     return (
         <div className="app">
             <div className="dashboard">
@@ -23,11 +26,11 @@ const Dashboard = () => {
                     <button>Add Your adventure</button>
                 </div>
                 <div className="posts-container">
-                    {/* {posts?.map((post) => (
-                        <Link to={`/posts/${post.id}`} id="link" key={post.id}>
-                        <Card post={post}/>
+                    {posts?.map((post) => (
+                        <Link to={`/posts/${post[0]}`} id="link" key={post[0]}>
+                        <Card post={post[1]}/>
                         </Link>
-                    ))} */}
+                    ))}
                 </div>
             </div>
         </div>
