@@ -1,10 +1,13 @@
 import Card from '../components/Card'
+import Modal from '../components/Modal' 
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 const Dashboard = () => {
     const [posts, setPosts] = useState(null)
+    const [mode, setMode] = useState(null)
+
     const fetchPosts = async () => {
         const response = await axios.get('http://localhost:8000/posts')
         const dataObject = response.data.data
@@ -23,7 +26,7 @@ const Dashboard = () => {
                         <h1>Adventure anywhere</h1>
                         <p>Keep calm && travel on</p>
                     </div>
-                    <button>Add Your adventure</button>
+                    <button onClick={()=> setMode('create')}>Add Your adventure</button>
                 </div>
                 <div className="posts-container">
                     {posts?.map((post) => (
@@ -33,6 +36,7 @@ const Dashboard = () => {
                     ))}
                 </div>
             </div>
+            {mode && <Modal mode={mode}/>}
         </div>
     )
 }

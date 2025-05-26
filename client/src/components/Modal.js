@@ -1,5 +1,20 @@
-const Modal = () => {
+import { useState } from 'react'
+const Modal = ({mode}) => {
+    console.log(mode)
+    const [form, setForm] = useState({
+        line: "",
+        image: "",
+        description: ""
+    })
+    console.log(form)
+
     const createMode = true
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
     }
@@ -19,7 +34,7 @@ const Modal = () => {
                                 placeholder="line"
                                 required
                                 name="line"
-                                value={}
+                                value={''}
                                 onChange = {handleChange}
                                 />
                             </div>
@@ -31,3 +46,4 @@ const Modal = () => {
         </div>
     )
 }
+export default Modal
