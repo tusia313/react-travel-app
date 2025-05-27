@@ -1,23 +1,27 @@
 import { useState } from 'react'
 const Modal = ({mode, setMode}) => {
-    console.log(mode)
     const [form, setForm] = useState({
         line: "",
         image: "",
         description: ""
     })
-    console.log(form)
 
     const createMode = true
+
     const handleChange = (e) => {
-        setForm({
-            ...form,
+//Przy  bardziej złożonych projektach mozna uzyc prevState, bo normalnie to by było bezpośrdenio nadpisywanie ...form  
+        setForm(prevState => (
+            {
+            ...prevState,
             [e.target.name]: e.target.value
         })
+        )
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
     }
+
     return(
         <div className="overlay">
             <div className = "modal">
@@ -34,12 +38,32 @@ const Modal = ({mode, setMode}) => {
                                 placeholder="line"
                                 required
                                 name="line"
-                                value={''}
+                                value={form.line}
                                 onChange = {handleChange}
                                 />
                             </div>
-                            <div className="input-container"></div>
-                            <div className="input-container"></div>
+                            <div className="input-container">
+                                <label for="country">COUNTRY</label>
+                                <input
+                                id="country"
+                                placeholder="country"
+                                required
+                                name="country"
+                                value={form.country}
+                                onChange = {handleChange}
+                                />
+                            </div>
+                            <div className="input-container">
+                                <label for="city">CITY</label>
+                                <input
+                                id="city"
+                                placeholder="city"
+                                required
+                                name="city"
+                                value={form.city}
+                                onChange = {handleChange}
+                                />      
+                            </div>
                         </div>
                 </form>
             </div>
