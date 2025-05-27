@@ -69,16 +69,16 @@ const Modal = ({ mode, setMode }) => {
                         </div>
                     </div>
                     <div className="input-container">
-                            <label for="description">DESCRIPTION</label>
-                            <input
-                                id="description"
-                                placeholder="description"
-                                required
-                                name="description"
-                                value={form.description}
-                                onChange={handleChange}
-                            />
-                        </div>
+                        <label for="description">DESCRIPTION</label>
+                        <input
+                            id="description"
+                            placeholder="description"
+                            required
+                            name="description"
+                            value={form.description}
+                            onChange={handleChange}
+                        />
+                    </div>
                     <div className="multi-input">
                         <div className="input-container">
                             <label for="line">FIRST LINE</label>
@@ -114,10 +114,46 @@ const Modal = ({ mode, setMode }) => {
                             />
                         </div>
                     </div>
-                    <input type="submit" value={createMode ? "Submit for review →" : "Edit ✎"} className="submit-button" />
-                </form>
-            </div>
+                    <div className="multi-input">
+                        <div className='input-container'>
+                            <label for="longitude">LONGITUDE</label>
+                            <input
+                                id="longitude"
+                                placeholder="longitude"
+                                required
+                                type='number'
+                                name="longitude"
+                                value={form.longitude}
+                                onChange={handleChange}
+                            /></div>
+                        <div className='input-container'>
+                            <label for="latitude">LATITUDE</label>
+                            <input
+                                id="latitude"
+                                placeholder="latitude"
+                                type='number'
+                                required
+                                name="latitude"
+                                value={form.latitude}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className='input-container'>
+                            <label for="region">REGION</label>
+                            <input
+                                id="region"
+                                placeholder="region"
+                                required
+                                name="region"
+                                value={form.region}
+                                onChange={handleChange} />
+                        </div>
+                    </div>
+                <br/>
+                <input type="submit" value={createMode ? "Submit for review →" : "Edit ✎"} className="submit-button" />
+            </form>
         </div>
+        </div >
     )
 }
 export default Modal

@@ -225,6 +225,7 @@ footer .footer-container h4 {
 }
 .overlay .modal .closing-icon {
     float: right;
+    padding: 0.1rem;
     width: 1.4rem;
     height: 1.4rem;
     display: flex;
@@ -237,8 +238,9 @@ footer .footer-container h4 {
     cursor: pointer;
 }
 .modal .closing-icon:hover {
-    background-color: rgb(240, 240, 240);
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    background-color: var(--color-button-hover);
+    color: rgb(255, 255, 255);
+    border: none;
 }
 
 .modal .form-container {
@@ -266,6 +268,10 @@ form input {
     border-radius: 0.7rem;
 }
 
+form .main-input {
+    width: 18rem;
+}
+
 form .input-container {
     display: flex;
     flex-direction: column;
@@ -285,11 +291,11 @@ form .multi-input {
 } */
 
 form input[type="submit"] {
-    padding: 0.5rem;
-    background-color: rgb(200, 200, 200);
+    padding: 0.7rem 1.3rem;
+    background-color: var(--color-button);
     color: white;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 1.4rem;
     cursor: pointer;
 }
 form input[type="submit"]:hover {
