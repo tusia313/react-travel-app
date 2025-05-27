@@ -254,3 +254,53 @@ footer .footer-container h4 {
     border: 1px solid rgb(200, 200, 200);
     border-radius: 0.5rem;
 }
+/* FORM */
+form {
+    padding: 1.8rem;
+}
+
+form input {
+    margin: 0.3rem 0 0 0;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 0.7rem;
+}
+
+form .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.2rem 0;
+}
+
+form .multi-input {
+    display: flex;
+    justify-content: space-between;
+  
+}
+/* form .multiple-inputs input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 0.5rem;
+} */
+
+form input[type="submit"] {
+    padding: 0.5rem;
+    background-color: var(--color-button);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+form input[type="submit"]:hover {
+    background-color: var(--color-button-hover);
+}
+form input[type="submit"]:focus {
+    outline: none;
+}
+form input[type="submit"]:active {
+    transform: scale(0.95);
+    transition: all 0.1s ease-in-out;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
