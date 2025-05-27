@@ -30,57 +30,55 @@ const Modal = ({ mode, setMode }) => {
                     <h1>{createMode ? "Add" : "Edit"} Your adventure</h1>
                     <h5>Upload a photo of where You have visited</h5>
                     <p>Paste a url from the internet</p>
-                    <div className="input-container">
-                        <label for="image">PHOTO</label>
-                        <input
-                            id="image"
-                            placeholder="image url"
-                            required
-                            name="image"
-                            value={form.image}
-                            onChange={handleChange}
-                        /></div>
-                    <div className="input-container">
-                        <label for="title">TITLE</label>
-                        <input
-                            id="title"
-                            placeholder="title"
-                            required
-                            name="title"
-                            value={form.title}
-                            onChange={handleChange} />
+
+                    <div className="multi-input">
+                        <div className="img-preview">
+                            {form.photo && <img src={form.image} alt="Photo's preview" />}
+                        </div>
+                        <div className="main-input">
+                            <div className="input-container">
+                                <label for="photo">PHOTO</label>
+                                <input
+                                    id="photo"
+                                    placeholder="photo url goes here"
+                                    required
+                                    name="photo"
+                                    value={form.photo}
+                                    onChange={handleChange}
+                                /></div>
+                            <div className="input-container">
+                                <label for="title">TITLE</label>
+                                <input
+                                    id="title"
+                                    placeholder="Title of Your post"
+                                    required
+                                    name="title"
+                                    value={form.title}
+                                    onChange={handleChange} />
+                            </div>
+                            <div className="input-container">
+                                <label for="website">WEBSITE</label>
+                                <input
+                                    id="website"
+                                    placeholder="Website here"
+                                    required
+                                    name="website"
+                                    value={form.website}
+                                    onChange={handleChange}
+                                /></div>
+                        </div>
                     </div>
                     <div className="input-container">
-                        <label for="website">WEBSITE</label>
-                        <input
-                            id="website"
-                            placeholder="website"
-                            required
-                            name="website"
-                            value={form.website}
-                            onChange={handleChange}
-                        /></div>
-                    <div className="input-container">
-                        <label for="description">DESCRIPTION</label>
-                        <input
-                            id="description"
-                            placeholder="description"
-                            required
-                            name="description"
-                            value={form.description}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="input-container">
-                        <label for="website">WEBSITE</label>
-                        <input
-                            id="website"
-                            placeholder="website"
-                            required
-                            name="website"
-                            value={form.website}
-                            onChange={handleChange}
-                        /></div>
+                            <label for="description">DESCRIPTION</label>
+                            <input
+                                id="description"
+                                placeholder="description"
+                                required
+                                name="description"
+                                value={form.description}
+                                onChange={handleChange}
+                            />
+                        </div>
                     <div className="multi-input">
                         <div className="input-container">
                             <label for="line">FIRST LINE</label>
@@ -116,7 +114,7 @@ const Modal = ({ mode, setMode }) => {
                             />
                         </div>
                     </div>
-                    <input type="submit" value={createMode ? "Submit for review →" : "Edit ✎"} className="submit-button" />   
+                    <input type="submit" value={createMode ? "Submit for review →" : "Edit ✎"} className="submit-button" />
                 </form>
             </div>
         </div>

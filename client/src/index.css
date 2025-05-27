@@ -225,15 +225,15 @@ footer .footer-container h4 {
 }
 .overlay .modal .closing-icon {
     float: right;
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.4rem;
+    height: 1.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
     transition: all 0.2s ease-in-out;
-    border: 1.5px solid rgb(150, 150, 150);
+    border: 1px solid rgb(150, 150, 150);
     cursor: pointer;
 }
 .modal .closing-icon:hover {
@@ -260,7 +260,7 @@ form {
 }
 
 form input {
-    margin: 0.3rem 0 0 0;
+    margin: 0.2rem 0 0 0;
     padding: 0.6rem 0.8rem;
     border: 1px solid rgb(200, 200, 200);
     border-radius: 0.7rem;
@@ -269,7 +269,7 @@ form input {
 form .input-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.2rem 0;
+    margin-bottom: 0.5rem ;
 }
 
 form .multi-input {
@@ -286,7 +286,7 @@ form .multi-input {
 
 form input[type="submit"] {
     padding: 0.5rem;
-    background-color: var(--color-button);
+    background-color: rgb(200, 200, 200);
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -303,4 +303,17 @@ form input[type="submit"]:active {
     transition: all 0.1s ease-in-out;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
+}
+
+.img-preview {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 4.5rem;
+    background-color: rgb(240, 240, 240);
+    overflow: hidden;
+    margin: 1rem;
+}
+
+.img-preview  img {
+    width: 150%;
 }
