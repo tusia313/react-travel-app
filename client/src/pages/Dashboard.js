@@ -36,7 +36,7 @@ const Dashboard = () => {
                     ))}
                 </div>
             </div>
-            {mode && <Modal mode={mode}/>}
+            {mode && <Modal mode={mode} setMode={setMode}/>}
         </div>
     )
 }

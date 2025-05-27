@@ -1,5 +1,5 @@
 import { useState } from 'react'
-const Modal = ({mode}) => {
+const Modal = ({mode, setMode}) => {
     console.log(mode)
     const [form, setForm] = useState({
         line: "",
@@ -22,7 +22,7 @@ const Modal = ({mode}) => {
         <div className="overlay">
             <div className = "modal">
                 <form onSubmit={handleSubmit}>
-                    <div className="closing-icon">x</div>
+                    <div className="closing-icon" onClick={() => setMode(null)}>x</div>
                         <h1>{createMode ? "Add" : "Edit"} Your adventure</h1>
                         <h5>Upload a photo of where You have visited</h5>
                         <p>Paste a url from the internet</p>
