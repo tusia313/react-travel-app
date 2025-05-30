@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import Modal from '../components/Modal'
+import axios from 'axios'
 
 const Post = () => {
     const [mode, setMode] = useState(null)
+
+    const fetchData = async () => {
+        const response = await axios.get()
+    }
+
     return (
         <div className="post-page">
             <div className="post-page-container">

@@ -1,8 +1,11 @@
 const PORT = 8000
 const { default: axios } = require('axios')
 require('dotenv').config()
+const cors = require('cors')
 const express = require('express')
 const app = express()
+
+app.use(cors())
 
 //Default
 app.get('/', (req, res) => {
@@ -25,4 +28,28 @@ app.get('/posts', async(req, res) => {
     res.status(500).json({ message: 'Error fetching posts' })
   }
 })
+
+// Get a single post 
+app.get('/posts/:postId'), async (req, res) => {
+  const url = `${process.env.ASTRA_URL}/${id}`
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-Cassandra-Token': process.env.TOKEN,
+    }
+  }
+  try { 
+    const { id } = req.params
+    const response = await axios(url, options)
+    if (response.data) {
+      res.status(200).json(response.data)
+    } else {
+      res.status(404).json({ message: 'Post not found' })
+    }
+
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: 'Error fetching post' })
+  }
+}
 app.listen(PORT, console.log('Server is running on port ' + PORT))

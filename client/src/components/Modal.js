@@ -6,7 +6,7 @@ const Modal = ({ mode, setMode }) => {
         description: ""
     })
 
-    const createMode = true
+    const createMode = mode === "create"
 
     const handleChange = (e) => {
         //Przy  bardziej złożonych projektach mozna uzyc prevState, bo normalnie to by było bezpośrdenio nadpisywanie ...form  
