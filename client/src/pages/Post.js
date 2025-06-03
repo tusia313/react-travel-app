@@ -22,14 +22,18 @@ const Post = () => {
             <div className="post-page-container">
                 <div className="info-container">
                     <div className="title-container">
-                        <h1>xxx</h1>
-                        <h4>xxx</h4>
-                        <p>xxx</p>
+                        <h1>{post?.data.title}</h1>
+                        <h4>{post?.data.description}</h4>
+                        <p>{post?.data.address.region}, {post?.data.address.country}, {post?.data.website}</p>
                     </div>
                     <div className="button-container">
                         <button>x</button>
                         <button onClick={()=> setMode('edit')}>✎</button>
                     </div>
+                </div>
+                <div className="image-container">
+                    {/* <Map/> */}
+                    <img src={post?.data.photo} alt={post?.data.title} />
                 </div>
                 {mode && <Modal mode={mode} setMode={setMode} />}
             </div>
