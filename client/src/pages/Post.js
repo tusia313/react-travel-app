@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom'
 import Modal from '../components/Modal'
 import axios from 'axios'
 
 const Post = () => {
     const [mode, setMode] = useState(null)
+    const [post, setPost] = useState(null)
+    const { id } = useParams()
 
     const fetchData = async () => {
-        const response = await axios.get()
+        const response = await axios.get(`http://localhost:8000/posts/${id}`)
+        setPost(response.data)
     }
+    useEffect(() => {
+        fetchData()
+    }
+    , [])
 
     return (
         <div className="post-page">
@@ -29,5 +37,4 @@ const Post = () => {
 
     )
 }
-
 export default Post

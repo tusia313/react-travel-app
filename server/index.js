@@ -7,12 +7,13 @@ const app = express()
 
 app.use(cors())
 
-//Default
+//Default route
 app.get('/', (req, res) => {
   res.status(200).json('Welcome to the port 8000 :)')
 })
+
 //Get all posts
-app.get('/posts', async(req, res) => {
+app.get('/posts', async (req, res) => {
   const url = `${process.env.ASTRA_URL}?posts-size=20`
   const options = {
     method: 'GET',
@@ -21,7 +22,7 @@ app.get('/posts', async(req, res) => {
     }
   }
   try {
-    const response = await axios (url, options)
+    const response = await axios(url, options)
     res.status(200).json(response.data)
   } catch (err) {
     console.error(err)
@@ -30,7 +31,9 @@ app.get('/posts', async(req, res) => {
 })
 
 // Get a single post 
-app.get('/posts/:postId'), async (req, res) => {
+app.get('/posts/:postId', async (req, res) => {
+  console.log(req)
+  const id = req.params.postId
   const url = `${process.env.ASTRA_URL}/${id}`
   const options = {
     method: 'GET',
@@ -38,18 +41,13 @@ app.get('/posts/:postId'), async (req, res) => {
       'X-Cassandra-Token': process.env.TOKEN,
     }
   }
-  try { 
-    const { id } = req.params
+  try {
     const response = await axios(url, options)
-    if (response.data) {
-      res.status(200).json(response.data)
-    } else {
-      res.status(404).json({ message: 'Post not found' })
-    }
-
+    res.status(200).json(response.data)
   } catch (err) {
     console.error(err)
     res.status(500).json({ message: 'Error fetching post' })
   }
-}
+})
+// Create a new post
 app.listen(PORT, console.log('Server is running on port ' + PORT))
