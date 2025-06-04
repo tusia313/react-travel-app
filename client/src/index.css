@@ -375,11 +375,16 @@ form input[type="submit"]:active {
 .post-page .post-page-container .image-container {
     width: 100%;
     margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .post-page .post-page-container .image-container img {
-    width: 100%;
-    height: 100%;
+    max-width: 100vw;
+    max-height: 95vh;
     object-fit: cover;
+
     border-radius: 1.5rem;
 
 }

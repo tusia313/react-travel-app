@@ -1,9 +1,25 @@
 import { useState } from 'react'
-const Modal = ({ mode, setMode }) => {
+const Modal = ({ mode, setMode, currentPost }) => {
+    console.log("currentPost " + currentPost)
+    // Gdy użytkownik otworzy modal w trybie edycji, pola formularza są już wypełnione istniejącymi danymi posta
     const [form, setForm] = useState({
-        line: "",
-        image: "",
-        description: ""
+        title: currentPost?.data.title || "",
+        description: currentPost?.data.description || "",
+        line:currentPost?.data.address.line || "",
+        country: currentPost?.data.address.country || "",
+        city: currentPost?.data.address.city || "",
+        region: currentPost?.data.address.region || "",
+        longitude: currentPost?.data.address.coords[0] || "",
+        latitude: currentPost?.data.address.coords[1] || "",
+        website: currentPost?.data.website || "",
+        photo: currentPost?.data.photo || "",
+        sea: currentPost?.data.tags.includes("sea")|| false,
+        cliff: currentPost?.data.tags.includes("cliff") || false,
+        nature: currentPost?.data.tags.includes("nature") || false,
+        coast: currentPost?.data.tags.includes("coast") || false,
+        Gdynia: currentPost?.data.tags.includes("Gdynia") || false,
+        krokusy: currentPost?.data.tags.includes("krokusy") || false,
+        mountains: currentPost?.data.tags.includes("mountains") || false
     })
 
     const createMode = mode === "create"
