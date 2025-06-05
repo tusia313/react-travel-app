@@ -7,7 +7,7 @@ const Modal = ({ mode, setMode, currentPost }) => {
         description: currentPost?.data.description || "",
         line: currentPost?.data.address.line || "",
         country: currentPost?.data.address.country || "",
-        city: currentPost?.data.address.town || "",
+        town: currentPost?.data.address.town || "",
         region: currentPost?.data.address.region || "",
         longitude: currentPost?.data.address.coords[0] || "",
         latitude: currentPost?.data.address.coords[1] || "",
@@ -36,6 +36,33 @@ const Modal = ({ mode, setMode, currentPost }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        const selectedTags = (form) => {
+            const selectedTags = []
+            const tags = ['sea', 'cliff', 'nature', 'coast', 'Gdynia', 'krokusy', 'mountains']
+            // Iterujemy przez tablicę tagów i sprawdzamy, czy dany tag jest zaznaczony
+            // Jeśli tak, dodajemy go do selectedTags
+            tags.forEach((tag) => {
+                if (form[tag] === true) {
+                    selectedTags.push(tag)
+                }
+            })
+            return selectedTags
+        }
+        const data = {
+            title: form.title,
+            description: form.description,
+            address: {
+                line: form.line,
+                country: form.country,
+                town: form.town,
+                region: form.region,
+                coords: [Number(form.longitude), Number(form.latitude)]
+            },
+            website: form.website,
+            photo: form.photo,
+            tags: selectedTags(form)
+        }
     }
 
     return (
