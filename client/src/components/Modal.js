@@ -1,5 +1,7 @@
 import { useState } from 'react'
-const Modal = ({ mode, setMode, currentPost }) => {
+import { selectedTags } from '../helpers'
+import axios from 'axios'
+const Modal = ({ mode, setMode, currentPost, fetchData }) => {
     console.log("currentPost " + currentPost)
     // Gdy użytkownik otworzy modal w trybie edycji, pola formularza są już wypełnione istniejącymi danymi posta
     const [form, setForm] = useState({
@@ -34,21 +36,9 @@ const Modal = ({ mode, setMode, currentPost }) => {
         )
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const selectedTags = (form) => {
-            const selectedTags = []
-            const tags = ['sea', 'cliff', 'nature', 'coast', 'Gdynia', 'krokusy', 'mountains']
-            // Iterujemy przez tablicę tagów i sprawdzamy, czy dany tag jest zaznaczony
-            // Jeśli tak, dodajemy go do selectedTags
-            tags.forEach((tag) => {
-                if (form[tag] === true) {
-                    selectedTags.push(tag)
-                }
-            })
-            return selectedTags
-        }
         const data = {
             title: form.title,
             description: form.description,
@@ -62,6 +52,34 @@ const Modal = ({ mode, setMode, currentPost }) => {
             website: form.website,
             photo: form.photo,
             tags: selectedTags(form)
+        }
+        try {
+            if (createMode) {
+                const response = await axios.post(" ", {
+                    data: data
+                })
+                const success = response.status === 201
+                if (success) {
+                    setMode(null)
+                    fetchData()
+                } else {
+                    console.error("Failed to create post")
+                }
+            } else {
+                const response = awaut axios.put("", {
+                    data: data
+                })
+                const success = response.status === 200
+                if (success) {
+                    setMode(null)
+                    fetchData()
+                } else {
+                    console.error("Failed to update post")
+                }
+            }
+
+        } catch (error) {
+            console.error("Error submitting form: ", error)
         }
     }
 

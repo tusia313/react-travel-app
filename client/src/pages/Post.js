@@ -35,7 +35,7 @@ const Post = () => {
                     {/* <Map/> */}
                     <img src={post?.data.photo} alt={post?.data.title} />
                 </div>
-                {mode && <Modal mode={mode} setMode={setMode} currentPost={post} />}
+                {mode && <Modal mode={mode} setMode={setMode} fetchData={fetchData} currentPost={post} />}
             </div>
         </div>
 
