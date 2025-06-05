@@ -5,15 +5,15 @@ const Modal = ({ mode, setMode, currentPost }) => {
     const [form, setForm] = useState({
         title: currentPost?.data.title || "",
         description: currentPost?.data.description || "",
-        line:currentPost?.data.address.line || "",
+        line: currentPost?.data.address.line || "",
         country: currentPost?.data.address.country || "",
-        city: currentPost?.data.address.city || "",
+        city: currentPost?.data.address.town || "",
         region: currentPost?.data.address.region || "",
         longitude: currentPost?.data.address.coords[0] || "",
         latitude: currentPost?.data.address.coords[1] || "",
         website: currentPost?.data.website || "",
         photo: currentPost?.data.photo || "",
-        sea: currentPost?.data.tags.includes("sea")|| false,
+        sea: currentPost?.data.tags.includes("sea") || false,
         cliff: currentPost?.data.tags.includes("cliff") || false,
         nature: currentPost?.data.tags.includes("nature") || false,
         coast: currentPost?.data.tags.includes("coast") || false,
@@ -29,7 +29,7 @@ const Modal = ({ mode, setMode, currentPost }) => {
         setForm(prevState => (
             {
                 ...prevState,
-                [e.target.name]: e.target.value
+                [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
             })
         )
     }
@@ -49,7 +49,7 @@ const Modal = ({ mode, setMode, currentPost }) => {
 
                     <div className="multi-input">
                         <div className="img-preview">
-                            {form.photo && <img src={form.image} alt="Photo's preview" />}
+                            {form.photo && <img src={form.photo} alt="Photo's preview" />}
                         </div>
                         <div className="main-input">
                             <div className="input-container">
@@ -165,10 +165,82 @@ const Modal = ({ mode, setMode, currentPost }) => {
                                 onChange={handleChange} />
                         </div>
                     </div>
-                <br/>
-                <input type="submit" value={createMode ? "Submit for review →" : "Edit ✎"} className="submit-button" />
-            </form>
-        </div>
+                    <div className="multi-input">
+                        <div className="input-container">
+                            <label for="sea-checkbox">sea</label>
+                            <input
+                                id="sea-checkbox"
+                                type="checkbox"
+                                name="sea"
+                                checked={form.sea}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-container">
+                            <label for="cliff-checkbox">cliff</label>
+                            <input
+                                id="cliff-checkbox"
+                                type="checkbox"
+                                name="cliff"
+                                checked={form.cliff}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-container">
+                            <label for="nature-checkbox">nature</label>
+                            <input
+                                id="nature-checkbox"
+                                type="checkbox"
+                                name="nature"
+                                checked={form.nature}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-container">
+                            <label for="coast-checkbox">coast</label>
+                            <input
+                                id="coast-checkbox"
+                                type="checkbox"
+                                name="coast"
+                                checked={form.coast}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-container">
+                            <label for="Gdynia-checkbox">Gdynia</label>
+                            <input
+                                id="Gdynia-checkbox"
+                                type="checkbox"
+                                name="Gdynia"
+                                checked={form.Gdynia}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-container">
+                            <label for="krokusy-checkbox">krokusy</label>
+                            <input
+                                id="krokusy-checkbox"
+                                type="checkbox"
+                                name="krokusy"
+                                checked={form.krokusy}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-container">
+                            <label for="mountains-checkbox">mountains</label>
+                            <input
+                                id="mountains-checkbox"
+                                type="checkbox"
+                                name="mountains"
+                                checked={form.mountains}
+                                onChange={handleChange}
+                            />
+                        </div>
+                    </div>
+                    <br />
+                    <input type="submit" value={createMode ? "Submit for review →" : "Edit ✎"} className="submit-button" />
+                </form>
+            </div>
         </div >
     )
 }
