@@ -25,6 +25,17 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
     })
 
     const createMode = mode === "create"
+    
+    const getTags = (form) => {
+        const selectedTags = []
+        const tags = ["sea", "cliff", "nature", "coast", "Gdynia", "krokusy", "mountains"]
+        tags.forEach(tag => {
+            if (form[tag] === true) {
+                selectedTags.push(tag)
+            }
+        })
+        return selectedTags
+    }
 
     const handleChange = (e) => {
         //Przy  bardziej złożonych projektach mozna uzyc prevState, bo normalnie to by było bezpośrdenio nadpisywanie ...form  
