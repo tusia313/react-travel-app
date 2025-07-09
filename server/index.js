@@ -66,10 +66,30 @@ app.put('/update/:postId', async (req, res) => {
   try {
     const response = await axios(url, options)
     res.status(200).json(response.data)
-  } catch(err){
+  } catch (err) {
     console.error(err)
     res.status(500).json({ message: 'Error updating post' })
   }
 })
 
+// Create a post
+app.post('/create', async (req, res) => {
+  const data = req.body.data
+  const url = process.env.ASTRA_URL
+  const options = {
+    method: 'POST',
+    headers: {
+      'X-Cassandra-Token': process.env.TOKEN,
+      Accepts: 'application/json',
+    },
+    data
+  }
+  try {
+    const response = await axios(url, options)
+    res.status(200).json(response.data)
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ message: err })
+  }
+})
 app.listen(PORT, console.log('Server is running on port ' + PORT))
