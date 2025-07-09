@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { selectedTags } from '../helpers'
 import axios from 'axios'
 const Modal = ({ mode, setMode, currentPost, fetchData }) => {
-    console.log("currentPost " + currentPost)
+    
     // Gdy użytkownik otworzy modal w trybie edycji, pola formularza są już wypełnione istniejącymi danymi posta
     const [form, setForm] = useState({
         title: currentPost?.data.title || "",
@@ -25,17 +25,6 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
     })
 
     const createMode = mode === "create"
-    
-    const getTags = (form) => {
-        const selectedTags = []
-        const tags = ["sea", "cliff", "nature", "coast", "Gdynia", "krokusy", "mountains"]
-        tags.forEach(tag => {
-            if (form[tag] === true) {
-                selectedTags.push(tag)
-            }
-        })
-        return selectedTags
-    }
 
     const handleChange = (e) => {
         //Przy  bardziej złożonych projektach mozna uzyc prevState, bo normalnie to by było bezpośrdenio nadpisywanie ...form  
@@ -69,23 +58,24 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                 const response = await axios.post(" ", {
                     data: data
                 })
-                const success = response.status === 201
+                
+                const success = response.status === 200
                 if (success) {
                     setMode(null)
                     fetchData()
                 } else {
-                    console.error("Failed to create post")
+                    console.error(response)
                 }
             } else {
-                const response = awaut axios.put("", {
-                    data: data
+                const response = await axios.put(`http://localhost:8000/update/${currentPost.documentId}`,{
+                    data: data,
                 })
                 const success = response.status === 200
                 if (success) {
                     setMode(null)
                     fetchData()
                 } else {
-                    console.error("Failed to update post")
+                    console.error(response)
                 }
             }
 
@@ -109,7 +99,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                         </div>
                         <div className="main-input">
                             <div className="input-container">
-                                <label for="photo">PHOTO</label>
+                                <label htmlFor="photo">PHOTO</label>
                                 <input
                                     id="photo"
                                     placeholder="photo url goes here"
@@ -119,7 +109,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                                     onChange={handleChange}
                                 /></div>
                             <div className="input-container">
-                                <label for="title">TITLE</label>
+                                <label htmlFor="title">TITLE</label>
                                 <input
                                     id="title"
                                     placeholder="Title of Your post"
@@ -129,7 +119,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                                     onChange={handleChange} />
                             </div>
                             <div className="input-container">
-                                <label for="website">WEBSITE</label>
+                                <label htmlFor="website">WEBSITE</label>
                                 <input
                                     id="website"
                                     placeholder="Website here"
@@ -141,7 +131,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                         </div>
                     </div>
                     <div className="input-container">
-                        <label for="description">DESCRIPTION</label>
+                        <label htmlFor="description">DESCRIPTION</label>
                         <input
                             id="description"
                             placeholder="description"
@@ -153,7 +143,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                     </div>
                     <div className="multi-input">
                         <div className="input-container">
-                            <label for="line">FIRST LINE</label>
+                            <label htmlFor="line">FIRST LINE</label>
                             <input
                                 id="line"
                                 placeholder="line"
@@ -164,7 +154,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="country">COUNTRY</label>
+                            <label htmlFor="country">COUNTRY</label>
                             <input
                                 id="country"
                                 placeholder="country"
@@ -175,20 +165,20 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="city">CITY</label>
+                            <label htmlFor="town">CITY</label>
                             <input
-                                id="city"
-                                placeholder="city"
+                                id="town"
+                                placeholder="town"
                                 required
-                                name="city"
-                                value={form.city}
+                                name="town"
+                                value={form.town}
                                 onChange={handleChange}
                             />
                         </div>
                     </div>
                     <div className="multi-input">
                         <div className='input-container'>
-                            <label for="longitude">LONGITUDE</label>
+                            <label htmlFor="longitude">LONGITUDE</label>
                             <input
                                 id="longitude"
                                 placeholder="longitude"
@@ -199,7 +189,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                                 onChange={handleChange}
                             /></div>
                         <div className='input-container'>
-                            <label for="latitude">LATITUDE</label>
+                            <label htmlFor="latitude">LATITUDE</label>
                             <input
                                 id="latitude"
                                 placeholder="latitude"
@@ -211,7 +201,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className='input-container'>
-                            <label for="region">REGION</label>
+                            <label htmlFor="region">REGION</label>
                             <input
                                 id="region"
                                 placeholder="region"
@@ -223,7 +213,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                     </div>
                     <div className="multi-input">
                         <div className="input-container">
-                            <label for="sea-checkbox">sea</label>
+                            <label htmlFor="sea-checkbox">sea</label>
                             <input
                                 id="sea-checkbox"
                                 type="checkbox"
@@ -233,7 +223,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="cliff-checkbox">cliff</label>
+                            <label htmlFor="cliff-checkbox">cliff</label>
                             <input
                                 id="cliff-checkbox"
                                 type="checkbox"
@@ -243,7 +233,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="nature-checkbox">nature</label>
+                            <label htmlFor="nature-checkbox">nature</label>
                             <input
                                 id="nature-checkbox"
                                 type="checkbox"
@@ -253,7 +243,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="coast-checkbox">coast</label>
+                            <label htmlFor="coast-checkbox">coast</label>
                             <input
                                 id="coast-checkbox"
                                 type="checkbox"
@@ -263,7 +253,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="Gdynia-checkbox">Gdynia</label>
+                            <label htmlFor="Gdynia-checkbox">Gdynia</label>
                             <input
                                 id="Gdynia-checkbox"
                                 type="checkbox"
@@ -273,7 +263,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="krokusy-checkbox">krokusy</label>
+                            <label htmlFor="krokusy-checkbox">krokusy</label>
                             <input
                                 id="krokusy-checkbox"
                                 type="checkbox"
@@ -283,7 +273,7 @@ const Modal = ({ mode, setMode, currentPost, fetchData }) => {
                             />
                         </div>
                         <div className="input-container">
-                            <label for="mountains-checkbox">mountains</label>
+                            <label htmlFor="mountains-checkbox">mountains</label>
                             <input
                                 id="mountains-checkbox"
                                 type="checkbox"

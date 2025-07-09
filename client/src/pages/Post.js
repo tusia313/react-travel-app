@@ -15,7 +15,7 @@ const Post = () => {
     useEffect(() => {
         fetchData()
     }
-    , [])
+    , [fetchData])
 
     return (
         <div className="post-page">

@@ -6,6 +6,7 @@ const express = require('express')
 const app = express()
 
 app.use(cors())
+app.use(express.json())
 
 //Default route
 app.get('/', (req, res) => {
@@ -49,5 +50,26 @@ app.get('/posts/:postId', async (req, res) => {
     res.status(500).json({ message: 'Error fetching post' })
   }
 })
-// Create a new post
+// Update a post
+app.put('/update/:postId', async (req, res) => {
+  const id = req.params.postId
+  const data = req.body.data
+  const url = `${process.env.ASTRA_URL}/${id}`
+  const options = {
+    method: 'PUT',
+    headers: {
+      'X-Cassandra-Token': process.env.TOKEN,
+      Accepts: 'application/json',
+    },
+    data
+  }
+  try {
+    const response = await axios(url, options)
+    res.status(200).json(response.data)
+  } catch(err){
+    console.error(err)
+    res.status(500).json({ message: 'Error updating post' })
+  }
+})
+
 app.listen(PORT, console.log('Server is running on port ' + PORT))
