@@ -11,8 +11,11 @@ const Dashboard = () => {
     const fetchData = async () => {
         const response = await axios.get('http://localhost:8000/posts')
         const dataObject = response.data.data
-        const arrayOfData = Object.keys(dataObject).map((key) => [key, dataObject[key]])
-        console.log('Fetched posts in frontend:', arrayOfData); // Loguj dane w frontendzie
+
+        const arrayOfData = Object.keys(dataObject).map((key) => ({
+            id: key, // Dodaj ID jako klucz
+            ...dataObject[key], // Rozwiń dane posta
+        }))
         setPosts(arrayOfData)
     }
 
@@ -32,8 +35,8 @@ const Dashboard = () => {
                 </div>
                 <div className="posts-container">
                     {posts?.map((post) => (
-                        <Link to={`/posts/${post[0]}`} id="link" key={post[0]}>
-                            <Card post={post[1]} />
+                        <Link to={`/posts/${post.id}`} id="link" key={post.id}>
+                            <Card post={post} />
                         </Link>
                     ))}
                 </div>

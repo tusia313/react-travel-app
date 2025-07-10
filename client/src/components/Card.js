@@ -1,5 +1,9 @@
 import Tag from './Tag'
 const Card = ({ post }) => {
+    if (!post) {
+        return <div>Error: Post data is missing</div>;
+    }
+
     return (
         <div className="card-container">
             <div className="img-container">

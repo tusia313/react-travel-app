@@ -381,8 +381,8 @@ form input[type="submit"]:active {
 
 }
 .post-page .post-page-container .image-container img {
-    max-width: 100vw;
-    max-height: 95vh;
+    max-width: 90vw;
+    max-height: 90vh;
     object-fit: cover;
 
     border-radius: 1.5rem;
