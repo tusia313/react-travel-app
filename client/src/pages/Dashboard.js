@@ -39,6 +39,8 @@ const Dashboard = () => {
                             <Card post={post} />
                         </Link>
                     ))}
+                    <div className="add-your-own">
+                        <button onClick={() => setMode('create')}>Add Your adventure</button></div>
                 </div>
             </div>
             {mode && <Modal mode={mode} setMode={setMode} fetchData={fetchData} />}

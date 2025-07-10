@@ -132,6 +132,7 @@ header .header-container {
 /* Card */
 .card-container {
     width: 21rem;
+    min-height: 34rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0.8rem 2.8rem 0.8rem rgba(0,0,0,0.08);
@@ -384,9 +385,18 @@ form input[type="submit"]:active {
     max-width: 90vw;
     max-height: 90vh;
     object-fit: cover;
-
     border-radius: 1.5rem;
+}
 
+.add-your-own {
+    width: 21rem;
+    height: 34rem;
+    border-radius: 1rem;
+    margin-bottom: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: dashed 2px rgb(231,231,231)
 }
 
 
