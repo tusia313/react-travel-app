@@ -1,21 +1,30 @@
-import { useEffect, useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import Modal from '../components/Modal'
 import axios from 'axios'
+import { useCallback } from 'react'
 
 const Post = () => {
     const [mode, setMode] = useState(null)
     const [post, setPost] = useState(null)
     const { id } = useParams()
+    const navigate = useNavigate()
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         const response = await axios.get(`http://localhost:8000/posts/${id}`)
         setPost(response.data)
+    }, [id])
+    console.log(post)
+
+    const deletePost = async () => {
+        const response = await axios.delete(`http://localhost:8000/delete/${id}`)
+        const success = response.status === 200
+        if (success) navigate('/')
     }
+
     useEffect(() => {
         fetchData()
-    }
-    , [fetchData])
+    }, [fetchData])
 
     return (
         <div className="post-page">
@@ -27,8 +36,8 @@ const Post = () => {
                         <p>{post?.data.address.region}, {post?.data.address.country}, {post?.data.website}</p>
                     </div>
                     <div className="button-container">
-                        <button>x</button>
-                        <button onClick={()=> setMode('edit')}>✎</button>
+                        <button onClick={deletePost}>x</button>
+                        <button onClick={() => setMode('edit')}>✎</button>
                     </div>
                 </div>
                 <div className="image-container">
