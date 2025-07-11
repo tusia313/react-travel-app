@@ -382,10 +382,14 @@ form input[type="submit"]:active {
 
 }
 .post-page .post-page-container .image-container img {
-    max-width: 90vw;
+    /* max-width: 90vw;
     max-height: 90vh;
-    object-fit: cover;
+    object-fit: cover; */
+    width: 100%;
     border-radius: 1.5rem;
+    position: relative;
+    top: -15rem;
+    left:0;
 }
 
 .add-your-own {
@@ -399,5 +403,24 @@ form input[type="submit"]:active {
     border: dashed 2px rgb(231,231,231)
 }
 
+.map-container {
+    position: relative;
+    top: 1.2rem;
+    left: 1.2rem;
+    width: 18rem;
+    height: 15rem;
+    border-radius: 1.2rem;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 0.8rem 1.8rem rgba(0,0,0,0.26);  
+}
 
+.map-container div {
+    width: 100%;
+    height: 100%;
+}
+
+.mapboxgl-compact {
+    display: none;
+}
 
