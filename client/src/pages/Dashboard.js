@@ -24,7 +24,7 @@ const Dashboard = () => {
     }, [])
 
     return (
-        <div className="app">
+        <div className="app" style = { mode && { height: "76vh", overflow: 'hidden' }}>
             <div className="dashboard">
                 <div className="dashboard-info-container">
                     <div>
