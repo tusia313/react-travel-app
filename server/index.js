@@ -27,7 +27,7 @@ app.get('/posts', async (req, res) => {
     }
   }
   try {
-    const response = await axios(url, options) 
+    const response = await axios(url, options)
     res.status(200).json(response.data)
   } catch (err) {
     console.error(err)
@@ -63,7 +63,7 @@ app.put('/update/:postId', async (req, res) => {
     method: 'PUT',
     headers: {
       'X-Cassandra-Token': process.env.TOKEN,
-      Accepts: 'application/json',
+      Accept: 'application/json',
     },
     data
   }
@@ -78,20 +78,20 @@ app.put('/update/:postId', async (req, res) => {
 
 // Create a post
 // const { v4: uuidv4 } = require('uuid')
-app.put('/create', async (req, res) => {
+app.post('/create', async (req, res) => {
   const data = req.body.data
   console.log('Data received:', data); // Loguj dane, aby upewnić się, że są poprawne
   // const documentId = uuidv4()
   const url = process.env.ASTRA_URL
   const options = {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       'X-Cassandra-Token': process.env.TOKEN,
       'Content-Type': 'application/json',
     },
     data
   }
- 
+
   try {
     const response = await axios(url, options)
     console.log('Post created successfully:', response.data);
@@ -117,7 +117,7 @@ app.delete('/delete/:postId', async (req, res) => {
     res.status(200).json(response.data)
   } catch (err) {
     console.error(err)
-    res.status(500).json({ message: err})
+    res.status(500).json({ message: err })
   }
 })
 app.listen(PORT, console.log('Server is running on port ' + PORT))
